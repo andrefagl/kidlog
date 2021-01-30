@@ -1,9 +1,19 @@
-import 'styles/globals.css'
-import type { AppProps /*, AppContext */ } from 'next/app'
+import { AppProps } from "next/app";
+import Head from "next/head";
+// import { ApolloProvider } from "@apollo/client";
+// import { useApollo } from "src/apollo";
+import { AuthProvider } from "src/auth/useAuth";
+import "../styles/index.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <AuthProvider>
+    <Head>
+      <title>Kidlog - Log your kids health</title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    <Component {...pageProps} />;
+  </AuthProvider>
+)
 
 // Only uncomment this method if you have blocking data requirements for
 // every single page in your application. This disables the ability to
@@ -18,4 +28,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 // }
 
 
-export default MyApp
+export default MyApp;
