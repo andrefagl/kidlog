@@ -5,11 +5,26 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "db:init": "yarn prisma init",
+    "db:generate": "yarn prisma generate",
+    "db:migrate:new": "yarn prisma migrate dev --create-only --preview-feature",
+    "db:migrate:up": "yarn prisma migrate dev --preview-feature",
+    "db:migrate:reset": "yarn prisma migrate reset --preview-feature",
+    "db:migrate:deploy": "yarn prisma migrate deploy --preview-feature",
+    "db:migrate:seed": "yarn prisma db seed --preview-feature"
   },
   "dependencies": {
+    "@prisma/client": "2.15.0",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@prisma/cli": "2.15.0",
+    "@types/node": "^14.14.22",
+    "@types/react": "^17.0.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
   }
 }
